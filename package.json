@@ -19,14 +19,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cnorick/jekyll-theme-easy-wedding.git"
+    "url": "git+https://github.com/JavierArroyoBastida/jekyll-theme-easy-wedding.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cnorick/jekyll-theme-easy-wedding/issues"
+    "url": "https://github.com/JavierArroyoBastida/jekyll-theme-easy-wedding/issues"
   },
-  "homepage": "https://github.com/cnorick/jekyll-theme-easy-wedding#readme",
+  "homepage": "https://github.com/JavierArroyoBastida/jekyll-theme-easy-wedding#readme",
   "dependencies": {
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.2",
