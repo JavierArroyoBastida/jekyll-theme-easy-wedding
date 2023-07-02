@@ -39,3 +39,6 @@ exclude:
 
 compress_images:
   images_path: "{assets,photos}/**/*.{gif,png,jpg,jpeg,svg}"
+
+theme: jekyll-theme-easy-wedding
+
