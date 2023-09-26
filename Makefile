@@ -14,14 +14,13 @@ build-env-no-cache:
 	--no-cache \
 	--progress=plain --rm -t ${IMG_NAME} .
 
-run-env:
-	docker run \
+COMMAND_RUN=docker run \
 		--name ${IMG_NAME} \
 		--detach=false \
 		--network=host \
 		--rm \
 		-v ${ROOT}:${IMG_HOME}/wedding:rw \
-		-w ${IMG_HOME}/wedding/example \
+		-w ${IMG_HOME}/wedding/web \
 		${IMG_NAME} 
 
 run-env-interactive:
@@ -44,7 +43,7 @@ pull:
 	docker tag ${IMG_REGI} ${IMG_NAME}
 
 run-and-build:
-	make run /bin/bash -c "bundle exec jekyll build"
+	$(COMMAND_RUN) /bin/bash -c "bundle exec jekyll build"
 
 run-and-serve:
-	make run /bin/bash -c "bundle exec jekyll serve"
+	$(COMMAND_RUN) /bin/bash -c "bundle exec jekyll serve"
