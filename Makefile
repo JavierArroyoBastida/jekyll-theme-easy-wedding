@@ -43,7 +43,7 @@ pull:
 	docker tag ${IMG_REGI} ${IMG_NAME}
 
 run-and-build:
-	$(COMMAND_RUN) /bin/bash -c "git config --global --add safe.directory /home/developer/wedding && npx webpack && bundle && bundle exec jekyll build"
+	$(COMMAND_RUN) /bin/bash -c "git config --global --add safe.directory /home/developer/wedding && cd .. && npx webpack && cd example && bundle exec jekyll build"
 
 run-and-serve:
-	$(COMMAND_RUN) /bin/bash -c "git config --global --add safe.directory /home/developer/wedding && npx webpack && bundle && exec jekyll serve"
+	$(COMMAND_RUN) /bin/bash -c "git config --global --add safe.directory /home/developer/wedding && cd .. && npx webpack && cd example && bundle exec jekyll serve"
