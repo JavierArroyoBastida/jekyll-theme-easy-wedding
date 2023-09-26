@@ -1,8 +1,9 @@
 # Set $ROOT to top-level directory of the repository
 ROOT ?= $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
-IMG_NAME=weddingweb
+IMG_NAME=webimg
 IMG_HOME=/home/developer
+IMG_REGI=javierarroyo/webimg
 
 build-env:
 	docker build -f ${ROOT}/Dockerfile \
@@ -19,14 +20,31 @@ run-env:
 		--detach=false \
 		--network=host \
 		--rm \
+		-v ${ROOT}:${IMG_HOME}/wedding:rw \
+		-w ${IMG_HOME}/wedding/example \
+		${IMG_NAME} 
+
+run-env-interactive:
+	docker run \
+		--name ${IMG_NAME} \
+		--detach=false \
+		--network=host \
+		--rm \
 		-it \
 		-v ${ROOT}:${IMG_HOME}/wedding:rw \
 		-w ${IMG_HOME}/wedding/example \
 		${IMG_NAME} 
 
-build-web:
-	bundle exec jekyll build
+push:
+	docker tag ${IMG_NAME} ${IMG_REGI}
+	docker push ${IMG_REGI}
 
-serve-web:
-	bundle exec jekyll serve
+pull:
+	docker pull ${IMG_REGI}
+	docker tag ${IMG_REGI} ${IMG_NAME}
 
+run-and-build:
+	make run /bin/bash -c "bundle exec jekyll build"
+
+run-and-serve:
+	make run /bin/bash -c "bundle exec jekyll serve"

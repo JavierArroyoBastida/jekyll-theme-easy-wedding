@@ -31,14 +31,14 @@ jobs:
       uses: actions/checkout@v3
     - name: Setup Pages
       uses: actions/configure-pages@v3
-    - name: Build Docker environment image
-      run: make build-env
+    - name: Pull Docker environment image
+      run: make pull
     - name: Build website in container
-      run: cd example && bundle exec jekyll build
+      run: make run-and-build
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v2
       with:
-        # upload only /web/_site directory. 
+        # upload only /example/_site directory. 
         path: './example/_site'
     - name: Deploy to GitHub Pages
       id: deployment
