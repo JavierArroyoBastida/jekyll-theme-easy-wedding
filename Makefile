@@ -20,7 +20,7 @@ COMMAND_RUN=docker run \
 		--network=host \
 		--rm \
 		-v ${ROOT}:${IMG_HOME}/wedding:rw \
-		-w ${IMG_HOME}/wedding/web \
+		-w ${IMG_HOME}/wedding/example \
 		${IMG_NAME} 
 
 run-env-interactive:
